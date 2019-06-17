@@ -1,0 +1,8 @@
+.showHead {
+    font-weight: bold;
+}
+
+.showDetail {
+    font-weight: normal;
+    text-indent: 2em;
+}

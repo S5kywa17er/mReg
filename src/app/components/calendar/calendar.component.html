@@ -1,0 +1,88 @@
+<app-univ-content>
+    <div class="app-title">
+        <div>
+            <h1>
+                <i class="fa fa-calendar"></i>
+                <span translate>menu-calendars</span>
+            </h1>
+            <p>แสดงข้อมูลปฏิทินการศึกษาในปีการศึกษา</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/univ">
+                    <i class="fa fa-home fa-lg"></i>
+                </a>
+            </li>
+            <li class="breadcrumb-item" translate>menu-education-service</li>
+            <li class="breadcrumb-item" translate>menu-calendars</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h3 class="card-header" translate>search</h3>
+                <div class="card-body">
+                    <form action="" class="row">
+                        <div class="form-group col-md-6" *ngIf="calendargroups">
+                            <label for="" translate>calendars</label>
+                            <select [(ngModel)]="igroupid" name="igroupid" class="form-control" required>
+                                <option value="" disabled translate>select</option>
+                                <option *ngFor="let calendargroup of calendargroups" [ngValue]="calendargroup.schedulegroupid">
+                                    {{ calendargroup.schedulegroupname }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="" translate>academic-year</label><br>
+                            <div class="btn-group">
+                                <button *ngFor="let semester of initsemester.defaultSemester" [value]="semester.semesterindex" 
+                                    (click)="isemester=semester.semesterindex;onChangeUpdate();" 
+                                    class="btn btn-outline-primary" type="button">
+                                    {{ semester.semesterinfo }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" *ngIf="calendaritems">
+            <div class="card">
+                <!-- <div class="card-header">
+                    <h4>{{ igroupid }}</h4>
+                </div> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ igroupid }}</h5>
+                    <div class="table-responsive"> 
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th translate>items</th>
+                                    <th translate>first-last-date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let calendaritem of calendaritems">
+                                    <div *ngIf="calendaritem.showtype=='H';then showHead else showDetail"></div>
+                                    <ng-template #showHead>
+                                        <td class="showHead">{{ calendaritem.title }}</td>
+                                        <td class="showHead">{{ calendaritem.datetime }}</td>
+                                    </ng-template>
+                                    <ng-template #showDetail>
+                                        <td class="showDetail">{{ calendaritem.title }}</td>
+                                        <td>{{ calendaritem.datetime }}</td>
+                                    </ng-template>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<app-univ-content>

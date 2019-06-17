@@ -1,0 +1,143 @@
+<app-univ-content>
+    <div class="app-title">
+        <div>
+            <h1>
+                <i class="fa fa-book"></i><span translate>menu-classes</span>
+            </h1>
+            <p>แสดงข้อมูลรายวิชาที่เปิดให้ศึกษาในปีการศึกษา</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/univ"><i class="fa fa-home fa-lg"></i></a>
+            </li>
+            <li class="breadcrumb-item" translate>menu-education-service</li>
+            <li class="breadcrumb-item" translate>menu-classes</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h3 class="card-header" translate>search</h3>
+                <div class="card-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="" translate>campus</label>
+                                <select [(ngModel)]="icampus" class="form-control" name="campusSelect" >
+                                    <option value="-1" translate>all</option>
+                                    <option *ngFor="let campus of campus" [ngValue]="campus.campusid">
+                                        {{campus.campusname}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="" translate>level</label>
+                                <select [(ngModel)]="ilevel" class="form-control" name="levelSelect" >
+                                    <option value="-1" translate>all</option>
+                                    <option *ngFor="let level of levels" [ngValue]="level.levelid">
+                                        {{level.levelname}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="" translate>academic-year</label><br>
+                                <!-- <div class="btn-group" [(ngModel)]="isemester" name="isemester" ngDefaultControl>
+                                    <button *ngFor="let semester of initsemester.defaultSemester" 
+                                        [value]="semester.semesterindex" 
+                                        class="btn btn-outline-primary" type="button">
+                                        {{ semester.semesterinfo }}
+                                    </button>
+                                </div> -->
+                                <div class="btn-group">
+                                    <label *ngFor="let semester of initsemester.defaultSemester"
+                                        [(ngModel)]="isemester" 
+                                        name="isemester" ngDefaultControl 
+                                        role="button"
+                                        class="btn btn-outline-primary" btnRadio={{semester.semesterindex}} tabindex="0">
+                                        {{ semester.semesterinfo }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="" translate>coursename</label>
+                                <div class="input-group">
+                                    <input [(ngModel)]="isearchstr" 
+                                            name="isearchstr" 
+                                            type="text" 
+                                            class="form-control input-group-append" placeholder="ระบุรหัสวิชาหรือชื่อวิชา">
+                                    <div class="input-group-append">
+                                        <button (click)="onSubmitSearch()" class="btn btn-primary" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="courses">
+        <!-- <div class="col-md-6">
+            <div class="tile">
+                <h3 class="tile-title mb-3 line-head" translate>courses</h3>
+                <div class="tile-body">
+                    <div class="bs-component">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action align-items-center" data-toggle="list"
+                                *ngFor="let course of courses.lstcourse"
+                                (click)="icoursecode=course.coursecode;onClickCourse()">
+                                <div style="float:left">
+                                    <h4 class="list-group-item-heading">{{course.coursecode}}</h4>
+                                    <p class="list-group-item-text" style="margin-bottom:0.5rem">
+                                        {{course.coursename}}
+                                    </p>
+                                </div>
+                                <div style="float: right;text-align: right">
+                                    <h5 class="list-group-item-text">
+                                        <span class="badge badge-pill badge-secondary">{{course.countofsection}}</span>
+                                    </h5>
+                                    <p style="margin-bottom:0.5rem" class="list-group-item-text">
+                                        {{course.courseunit}}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="col-md-6" *ngIf="sections">
+            <div class="tile">
+                <h3 class="tile-title mb-3 line-head" translate>section</h3>
+                <div class="tile-body">
+                    <div class="bs-componemt">
+                        <div class="list-group">
+                            <li *ngFor="let class of sections.lstclass"
+                                class="list-group-item align-items-center">
+                                <div style="float:left">
+                                    <h3 class="list-group-item-heading">{{class.section}}</h3>
+                                    <p class="list-group-item-text" style="margin-bottom:0.5rem">{{class.instructor}}</p>
+                                </div>
+                                <div style="float: right;text-align: right">
+                                    <h4 class="list-group-item-heading">{{class.totalseat}}|{{class.enrollseat}}</h4>
+                                    <p *ngIf="class.classstatus=='W'"
+                                        class="list-group-item-text badge badge-pill badge-success" style="margin-bottom:0.5rem">
+                                        {{class.classstatus}}
+                                    </p>
+                                    <p *ngIf="class.classstatus=='C'"
+                                        class="list-group-item-text badge badge-pill badge-danger" style="margin-bottom:0.5rem">
+                                        {{class.classstatus}}
+                                    </p>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</app-univ-content>

@@ -1,0 +1,62 @@
+<app-univ-content>
+    <div class="app-title">
+        <div>
+            <h1>
+                <i class="fa fa-file-text"></i><span translate>program</span>
+            </h1>
+            <p>แสดงข้อมูลหลักสูตรสาขาวิชาที่เปิดสอน</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/univ"><i class="fa fa-home fa-lg"></i></a>
+            </li>
+            <li class="breadcrumb-item" translate>menu-education-service</li>
+            <li class="breadcrumb-item" translate>menu-programs</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="tile">
+                <h3 class="tile-title mb-3 line-head" translate>level</h3>
+                <div class="bs-component">
+                    <div class="list-group">
+                        <a *ngFor="let level of levels" 
+                            (click)="ilevel=level.levelid;onClickLevel()"
+                            class="list-group-item list-group-item-action align-items-center" data-toggle="list">
+                            {{level.levelname}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" *ngIf="programs">
+            <div class="tile">
+                <h3 class="tile-title mb-3 line-head" translate>program</h3>
+                <div class="bs-component">
+                    <div class="list-group">
+                        <a *ngFor="let program of programs"
+                            (click)="onClickProgram(program)"
+                            class="list-group-item list-group-item-action">
+                            <div style="float:left">
+                                <h4 class="list-group-item-heading">
+                                    {{program.programname}}
+                                </h4>
+                                <p class="list-group-item-text" style="margin-bottom:0.5rem">
+                                    {{program.degreename}}
+                                </p>
+                            </div>
+                            <div style="float: right;text-align: right">
+                                <p class="list-group-item-heading" style="margin-bottom:0.5rem">
+                                    {{program.credittotal}} <span translate>credits</span>
+                                </p>
+                                <p class="list-group-item-text" style="margin-bottom:0.5rem">
+                                    {{program.gradepointmin | number : '.2-2'}} <span translate>GPA</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-univ-content>

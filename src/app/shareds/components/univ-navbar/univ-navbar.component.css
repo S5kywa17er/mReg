@@ -1,0 +1,11 @@
+.app-nav__item {
+    text-decoration:none;
+}
+
+.dropdown-menu {
+    min-width: 110px;
+}
+
+.dropdown-item-lang {
+    cursor: pointer;
+}

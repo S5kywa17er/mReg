@@ -1,0 +1,20 @@
+<app-univ-content>
+    <div class="app-title">
+        <div>
+        <h1><i class="fa fa-home"></i><span translate>registration</span></h1>
+        <p>Welcome to...</p>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let webmsg of webmsgs" class="col-md-6">
+            <div class="tile">
+                <h5 class="tile-title">{{webmsg.webtitle}}</h5>
+                <div class="tile-body">
+                    <p>{{webmsg.webmsg}}</p>
+                    <button (click)="onClickWebmsg(webmsg);" 
+                            class="btn btn-primary" type="button" translate>read-more</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-univ-content>
