@@ -16,6 +16,8 @@ import { ClassComponent } from './components/class/class.component';
 import { ProgramComponent } from './components/program/program.component';
 import { WebmsgComponent } from './components/univ/webmsg/webmsg.component';
 import { ProgramStructureComponent } from './components/program-structure/program-structure.component';
+// import { PrgstuctureComponent } from './components/program/prgstucture/prgstucture.component';
+import { StructureComponent } from './components/program/structure/structure.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +29,8 @@ import { ProgramStructureComponent } from './components/program-structure/progra
         ProgramComponent,
         WebmsgComponent,
         ProgramStructureComponent,
+        // PrgstuctureComponent,
+        StructureComponent,
     ],
     imports: [
         AppRouting,
@@ -43,7 +47,10 @@ import { ProgramStructureComponent } from './components/program-structure/progra
     ],
     providers: [],
     bootstrap: [AppComponent],
-    entryComponents: [WebmsgComponent]
+    entryComponents: [
+        WebmsgComponent,
+        StructureComponent
+    ]
 })
 export class AppModule { }
 

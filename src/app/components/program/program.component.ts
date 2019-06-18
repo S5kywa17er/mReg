@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { AppURL } from 'src/app/app.url';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { ProgramStructureComponent } from '../program-structure/program-structure.component';
+import { StructureComponent } from './structure/structure.component';
 
 declare const App: any;
 
@@ -42,7 +43,7 @@ export class ProgramComponent implements OnInit, IProgramComponent {
 
     programs: IProgramInfo;
 
-    programStructureRef: BsModalRef;
+    strutureRef: BsModalRef;
 
     AppURL = AppURL;
 
@@ -58,10 +59,11 @@ export class ProgramComponent implements OnInit, IProgramComponent {
     }
 
     onClickProgram(id: IWhProgramid) {
+        // console.log(id.programid);
         // this.router.navigate(['', AppURL.ProgramStructure, id.programid]);
 
-        const initialState: {} = {} as any;
-        this.programStructureRef = this.modalService.show(ProgramStructureComponent, { initialState });
+        const initialState: { programid: any } = { programid: id.programid } as any;
+        this.strutureRef = this.modalService.show(StructureComponent, { initialState });
     }
 
     private onLoadInitData() {
