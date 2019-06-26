@@ -16,9 +16,9 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <div class="tile">
-                <h3 class="tile-title mb-3 line-head" translate>level</h3>
-                <div class="bs-component">
+            <div class="card">
+                <h3 class="card-header" translate>level</h3>
+                <div class="card-body">
                     <div class="list-group">
                         <a *ngFor="let level of levels" 
                             (click)="ilevel=level.levelid;onClickLevel()"
@@ -30,26 +30,26 @@
             </div>
         </div>
         <div class="col-md-8" *ngIf="programs">
-            <div class="tile">
-                <h3 class="tile-title mb-3 line-head" translate>program</h3>
-                <div class="bs-component">
+            <div class="card">
+                <h3 class="card-header" translate>program</h3>
+                <div class="card-body">
                     <div class="list-group">
                         <a *ngFor="let program of programs"
                             (click)="onClickProgram(program)"
                             class="list-group-item list-group-item-action">
-                            <div style="float:left">
+                            <div style="float:left;">
                                 <h4 class="list-group-item-heading">
                                     {{program.programname}}
                                 </h4>
-                                <p class="list-group-item-text" style="margin-bottom:0.5rem">
+                                <p class="list-group-item-text" style="margin-bottom:0.5rem;">
                                     {{program.degreename}}
                                 </p>
                             </div>
-                            <div style="float: right;text-align: right">
-                                <p class="list-group-item-heading" style="margin-bottom:0.5rem">
+                            <div style="float: right;text-align: right;">
+                                <p class="list-group-item-heading" style="margin-bottom:0.5rem;">
                                     {{program.credittotal}} <span translate>credits</span>
                                 </p>
-                                <p class="list-group-item-text" style="margin-bottom:0.5rem">
+                                <p class="list-group-item-text" style="margin-bottom:0.5rem;">
                                     {{program.gradepointmin | number : '.2-2'}} <span translate>GPA</span>
                                 </p>
                             </div>
@@ -60,3 +60,4 @@
         </div>
     </div>
 </app-univ-content>
+

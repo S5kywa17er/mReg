@@ -1,117 +1,122 @@
+<!-- <div bsModal #structureRef="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="structureModal1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="structureModal1" class="modal-title pull-left">header</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="structureRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" *ngFor="let condition of programstructures">
+                    <ng-template [ngIf]="condition.conditiontype != 'C'">
+                        <div class="col-sm-9">
+                            <h6>{{condition.conditionid}} {{condition.description}}</h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 style="text-align: right;">{{condition.credittotal}} <span translate>credits</span></h6>
+                        </div>
+                    </ng-template>
+                    <ng-template [ngIf]="condition.conditiontype == 'C'">
+                        <div class="col-sm-12">
+                            <accordion>
+                                <accordion-group heading="{{condition.conditionid}} {{condition.description}}">
+                                    <div class="row" *ngFor="let course of condition.courses">
+                                        <div class="col-sm-2">
+                                            {{course.coursecode}}
+                                        </div> 
+                                        <div class="col-sm-7">
+                                            {{course.coursename}}
+                                        </div>
+                                        <div class="col-sm-3">
+                                            {{course.courseunit}}
+                                        </div>
+                                    </div>
+                                </accordion-group>
+                            </accordion>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p>footer</p>
+            </div>
+        </div>
+    </div> 
+</div> -->
+
 <div class="modal-header">
-    <h4>header</h4>
+    <h4 id="structureModal1" class="modal-title pull-left">Structure</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="structureRef.hide()">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
-    <div class="accordion" id="programid11111">
-        <h4>1 หมวดวิชาศึกษาทั่วไป</h4>
-        <div class="card">
-            <div class="card-header collapsed" 
-                data-toggle="collapse" 
-                aria-expanded="true" 
-                data-parent="#programid11111"
-                href="#C101">
-                <a class="card-title">1.1</a>
+    <div class="row" *ngFor="let condition of programstructures">
+        <ng-template [ngIf]="condition.conditiontype != 'C'">
+            <div class="col-sm-9">
+                <h6>{{condition.conditionid}} {{condition.description}}</h6>
             </div>
-            <div id="C101" class="collapse" >
-                <div class="card-body">
-                    <li>AAA101</li>
-                    <li>AAA102</li>
-                    <li>AAA103</li>
-                    <li>AAA104</li>
-                </div>
+            <div class="col-sm-3">
+                <h6 style="text-align: right;">{{condition.credittotal}} <span translate>credits</span></h6>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-header collapsed" 
-                data-toggle="collapse" 
-                aria-expanded="true" 
-                data-parent="#programid11111"
-                href="#C102">
-                <a class="card-title">1.2</a>
+        </ng-template>
+        <ng-template [ngIf]="condition.conditiontype == 'C'">
+            <div class="col-sm-12">
+                <accordion>
+                    <accordion-group heading="{{condition.conditionid}} {{condition.description}}" panelClass="customClass">
+                        <div class="row" *ngFor="let course of condition.courses">
+                            <div class="col-sm-2" style="text-align: right;">
+                                <a [routerLink]="" (click)="onClickCourse(course,templateCourse);">{{course.coursecode}}</a>
+                                <a [routerLink]="" (click)="openModal(templateCourse);">{{course.coursecode}}</a>
+                                <!-- <button type="button" class="btn btn-primary" (click)="openModal(templateCourse)">xxxx</button> -->
+                            </div> 
+                            <div class="col-sm-7">
+                                {{course.coursename}}
+                            </div>
+                            <div class="col-sm-3">
+                                {{course.courseunit}}
+                            </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
             </div>
-            <div id="C102" class="collapse" >
-                <div class="card-body">
-                    <li>BBB101</li>
-                    <li>BBB102</li>
-                    <li>BBB103</li>
-                    <li>BBB104</li>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header collapsed" 
-                data-toggle="collapse" 
-                aria-expanded="true" 
-                data-parent="#programid11111"
-                href="#C103">
-                <a class="card-title">1.3</a>
-            </div>
-            <div id="C103" class="collapse" >
-                <div class="card-body">
-                    <li>CCC101</li>
-                    <li>CCC102</li>
-                    <li>CCC103</li>
-                    <li>CCC104</li>
-                </div>
-            </div>
-        </div>
-        <h4>2 หมวดวิชาหลัก</h4>
-        <div class="card">
-            <div class="card-header collapsed" 
-                data-toggle="collapse" 
-                aria-expanded="true" 
-                data-parent="#programid11111"
-                href="#C201">
-                <a class="card-title">2.1</a>
-            </div>
-            <div id="C201" class="collapse" >
-                <div class="card-body">
-                    <li>AAA201</li>
-                    <li>AAA202</li>
-                    <li>AAA203</li>
-                    <li>AAA204</li>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header collapsed" 
-                data-toggle="collapse" 
-                aria-expanded="true" 
-                data-parent="#programid11111"
-                href="#C202">
-                <a class="card-title">2.2</a>
-            </div>
-            <div id="C202" class="collapse" >
-                <div class="card-body">
-                    <li>BBB201</li>
-                    <li>BBB202</li>
-                    <li>BBB203</li>
-                    <li>BBB204</li>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header collapsed" 
-                data-toggle="collapse" 
-                aria-expanded="true" 
-                data-parent="#programid11111"
-                href="#C203">
-                <a class="card-title">2.3</a>
-            </div>
-            <div id="C203" class="collapse" >
-                <div class="card-body">
-                    <li>CCC201</li>
-                    <li>CCC202</li>
-                    <li>CCC203</li>
-                    <li>CCC204</li>
-                </div>
-            </div>
-        </div>
+        </ng-template>
     </div>
 </div>
 <div class="modal-footer">
     <p>footer</p>
 </div>
+
+<ng-template #templateCourse>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{title}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <p></p>
+        </div>
+    </div>
+</ng-template>
+
+<!-- <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-child-name">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h4 id="dialog-child-name" class="modal-title pull-left">course</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" >
+            <p></p>
+        </div>
+        </div>
+    </div>
+</div> -->
+

@@ -27,5 +27,6 @@
     "courses": "Courses",
     "section": "Group/Section",
     "program": "Programs/Department",
-    "program-structure" : "Structure"
+    "program-structure": "Structure",
+    "credits": "Cr."
 }

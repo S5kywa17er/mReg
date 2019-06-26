@@ -14,7 +14,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { BsDropdownModule, ButtonsModule, ModalModule } from 'ngx-bootstrap';
+import { BsDropdownModule, ButtonsModule, ModalModule, AccordionModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AlertService } from './services/alert.service';
 import { SemesterService } from './services/semester.service';
 import { InitialService } from './services/initial.service';
@@ -36,10 +38,12 @@ import { InitialService } from './services/initial.service';
         ReactiveFormsModule,
         RouterModule,
         TranslateModule,
+        BrowserAnimationsModule,
 
         BsDropdownModule.forRoot(),
         ButtonsModule.forRoot(),
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        AccordionModule.forRoot(),
     ],
     exports: [
         AuthNavbarComponent,
@@ -53,10 +57,12 @@ import { InitialService } from './services/initial.service';
 
         FormsModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
 
         BsDropdownModule,
         ButtonsModule,
-        ModalModule
+        ModalModule,
+        AccordionModule,
     ],
     providers: [
         AlertService,

@@ -1,6 +1,6 @@
 /* CSS Document */
 
-.accordion .card-header:after {
+/* .accordion .card-header:after {
   font-family: "FontAwesome";
   content: "\f078";
   float: right;
@@ -11,4 +11,34 @@
   font-family: "FontAwesome";
   content: "\f054";
   cursor: pointer;
+}
+
+.card-header {
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+} */
+
+/* ::ng-deep .modal-content{
+  width: 800px;
+} */
+.accordion.animate .panel-collapse {
+	max-height: 0px;
+	transition: max-height 0.5s;
+	display: block !important;
+	overflow: hidden !important;
+}
+
+.accordion.animate .accordion-group.panel-open .panel-collapse {
+	max-height: 1024px;
+}
+
+.card.customClass,
+.card.customClass .card-header,
+.panel.customClass {
+  background-color: #5bc0de;
+  color: #fff;
+  padding: 0 0;
+}
+.panel.customClass .panel-body {
+  background-color: #337aa7;
 }

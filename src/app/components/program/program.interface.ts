@@ -11,12 +11,12 @@ export interface IProgramInfo {
     levelid: any;
     facultyid: any;
     programid: any;
-    departmentid: any;
-    program: string;
-    programname: string;
-    credittotal: string;
-    gradepointmin: string;
-    studyyearmax: string;
+    // departmentid: any;
+    // program: string;
+    // programname: string;
+    // credittotal: string;
+    // gradepointmin: string;
+    // studyyearmax: string;
 }
 
 export interface IWhLevel {
@@ -25,4 +25,8 @@ export interface IWhLevel {
 
 export interface IWhProgramid {
     programid?: any;
+}
+
+export interface IWhCourseid {
+    courseid?: any;
 }

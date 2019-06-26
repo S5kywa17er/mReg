@@ -27,5 +27,6 @@
     "courses": "รายวิชา",
     "section": "กลุ่มการเรียน",
     "program": "หลักสูตร/สาขาวิชา",
-    "program-structure" : "โครงสร้างหลักสูตร"
+    "program-structure": "โครงสร้างหลักสูตร",
+    "credits": "หน่วยกิต"
 }

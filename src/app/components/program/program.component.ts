@@ -4,7 +4,7 @@ import { AlertService } from 'src/app/shareds/services/alert.service';
 import { AuthenService } from 'src/app/services/authen.service';
 import { SemesterService } from 'src/app/shareds/services/semester.service';
 import { InitialService, ILevel } from 'src/app/shareds/services/initial.service';
-import { IProgramComponent, IProgramInfo, IWhLevel, IWhProgramid } from './program.interface';
+import { IProgramComponent, IProgramInfo, IWhLevel, IWhProgramid, IWhCourseid } from './program.interface';
 import { ProgramService } from './program.service';
 import { Router } from '@angular/router';
 import { AppURL } from 'src/app/app.url';
@@ -43,7 +43,8 @@ export class ProgramComponent implements OnInit, IProgramComponent {
 
     programs: IProgramInfo;
 
-    strutureRef: BsModalRef;
+    structureRef: BsModalRef;
+    structureRef2: BsModalRef;
 
     AppURL = AppURL;
 
@@ -52,18 +53,17 @@ export class ProgramComponent implements OnInit, IProgramComponent {
     }
 
     onClickLevel(): void {
-        // console.log(this.ilevel);
         this.onLoadProgram({ levelid: this.ilevel });
-
         this.detect.detectChanges();
     }
 
     onClickProgram(id: IWhProgramid) {
-        // console.log(id.programid);
         // this.router.navigate(['', AppURL.ProgramStructure, id.programid]);
 
-        const initialState: { programid: any } = { programid: id.programid } as any;
-        this.strutureRef = this.modalService.show(StructureComponent, { initialState });
+        // const initialState: { programid: any } = { programid: id.programid } as any;
+        const initialState = id.programid;
+        this.structureRef = this.modalService
+            .show(StructureComponent, Object.assign({ initialState }, { class: 'gray modal-lg', animated: true }));
     }
 
     private onLoadInitData() {

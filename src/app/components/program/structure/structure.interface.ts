@@ -4,14 +4,23 @@ export interface IStructureComponent {
 export interface IProgramStructure {
     programid: string;
     conditionid: string;
+    conditiondes: string;
     description: string;
     credittotal: string;
     conditiontype: string;
-    courselst: ICourseInProgram;
+    courses: ICourseInProgram;
 }
 export interface ICourseInProgram {
     courseid: any;
-    coursecode: string;
+    coursecode: any;
+    revisioncode: string;
     coursename: string;
+    coursenameeng: string;
+    facultyname: string;
+    departmentname: string;
     courseunit: string;
+    coursedes: string;
+    prerequisite: string;
 }
+
+// export interface IWhid { id: any; opt: string; }
