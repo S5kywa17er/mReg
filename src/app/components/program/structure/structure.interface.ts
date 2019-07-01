@@ -8,7 +8,7 @@ export interface IProgramStructure {
     description: string;
     credittotal: string;
     conditiontype: string;
-    courses: ICourseInProgram;
+    courses: ICourseInProgram[];
 }
 export interface ICourseInProgram {
     courseid: any;

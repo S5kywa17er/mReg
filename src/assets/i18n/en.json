@@ -28,5 +28,8 @@
     "section": "Group/Section",
     "program": "Programs/Department",
     "program-structure": "Structure",
-    "credits": "Cr."
+    "credits": "Cr.",
+    "totalseat":"Total",
+    "enrollseat":"Enroll",
+    "status": "Status"
 }

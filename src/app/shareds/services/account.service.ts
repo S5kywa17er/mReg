@@ -6,6 +6,7 @@ import { ILogin } from 'src/app/components/login/login.interface';
     providedIn: 'root'
 })
 export class AccountService {
+
     constructor(private http: HttpService) { }
 
     public UserLogin: IAccount = {} as any;
@@ -42,9 +43,16 @@ export interface IAccount {
     uid?: any;
     ulogin: string;
     upassword: string;
-    urole?: string;
+    urole?: IRoleUsers;
 
     uprefix?: string;
     ufirstname?: string;
     ulastname?: string;
+}
+
+export enum IRoleUsers {
+    Admin = 0,
+    Student,
+    Staff,
+    Officer
 }

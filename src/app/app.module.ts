@@ -18,6 +18,7 @@ import { ProgramStructureComponent } from './components/program-structure/progra
 import { StructureComponent } from './components/program/structure/structure.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap';
+import { CourseInfoComponent } from './components/program/course-info/course-info.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { AccordionModule } from 'ngx-bootstrap';
         WebmsgComponent,
         ProgramStructureComponent,
         StructureComponent,
+        CourseInfoComponent,
     ],
     imports: [
         AppRouting,
@@ -48,7 +50,8 @@ import { AccordionModule } from 'ngx-bootstrap';
     bootstrap: [AppComponent],
     entryComponents: [
         WebmsgComponent,
-        StructureComponent
+        StructureComponent,
+        CourseInfoComponent
     ]
 })
 export class AppModule { }

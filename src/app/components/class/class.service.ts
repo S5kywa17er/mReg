@@ -31,8 +31,7 @@ export class ClassService {
         } else {
             strWhere = strWhere + '/-1';
         }
-
-        console.log(strWhere);
+        // console.log(strWhere);
         return this.http
             .requestGet(`api/classinfo/getsearchcourse/${localStorage.getItem('lang')}/${whclass.semester}${strWhere}`, this.authen.getAuthenticated())
             .toPromise() as Promise<IClassCourse>;
@@ -52,14 +51,41 @@ export class ClassService {
         } else {
             strWhere = strWhere + '/-1';
         }
-        console.log(strWhere);
+        // console.log(strWhere);
         return this.http
             .requestGet(`api/classinfo/getclasssection/${localStorage.getItem('lang')}/${whclasscourse.semester}/${whclasscourse.coursecode}${strWhere}`, this.authen.getAuthenticated())
             .toPromise() as Promise<IClassSection>;
     }
 
-    getClassInfo(str?: string) {
-        console.log('xxx');
+    // all Class in Table list Component
+    getAllClass(whclass: IWhClass) {
+        let strWhere: string = '';
+
+        if (whclass.searchstr) {
+            strWhere = strWhere + '/' + whclass.searchstr;
+        } else {
+            strWhere = strWhere + '/-1';
+        }
+
+        if (whclass.campusid) {
+            strWhere = strWhere + '/' + whclass.campusid;
+        } else {
+            strWhere = strWhere + '/-1';
+        }
+
+        if (whclass.levelid) {
+            strWhere = strWhere + '/' + whclass.levelid;
+        } else {
+            strWhere = strWhere + '/-1';
+        }
+
+        return this.http
+            .requestGet(`api/classinfo/getAllClass/${localStorage.getItem('lang')}/${whclass.semester}${strWhere}`, this.authen.getAuthenticated())
+            .toPromise() as Promise<IClassSection>;
     }
+
+    // getClassInfo(str?: string) {
+    //     console.log('xxx');
+    // }
 
 }

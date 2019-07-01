@@ -20,17 +20,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertService } from './services/alert.service';
 import { SemesterService } from './services/semester.service';
 import { InitialService } from './services/initial.service';
+import { AuthstudentContentComponent } from './components/authstudent-content/authstudent-content.component';
+import { AuthstaffContentComponent } from './components/authstaff-content/authstaff-content.component';
+import { AuthstudentNavbarComponent } from './components/authstudent-navbar/authstudent-navbar.component';
+import { AuthstaffNavbarComponent } from './components/authstaff-navbar/authstaff-navbar.component';
 
 @NgModule({
     declarations: [
         AuthNavbarComponent,
         AuthSidebarComponent,
         AuthContentComponent,
+
         AuthstudentSidebarComponent,
+        AuthstudentContentComponent,
+        AuthstudentNavbarComponent,
+
         AuthstaffSidebarComponent,
+        AuthstaffContentComponent,
+        AuthstaffNavbarComponent,
+
         UnivNavbarComponent,
         UnivContentComponent,
-        UnivSidebarComponent
+        UnivSidebarComponent,
     ],
     imports: [
         CommonModule,
@@ -49,8 +60,15 @@ import { InitialService } from './services/initial.service';
         AuthNavbarComponent,
         AuthSidebarComponent,
         AuthContentComponent,
+
         AuthstudentSidebarComponent,
+        AuthstudentContentComponent,
+        AuthstudentNavbarComponent,
+
         AuthstaffSidebarComponent,
+        AuthstaffContentComponent,
+        AuthstaffNavbarComponent,
+
         UnivNavbarComponent,
         UnivContentComponent,
         UnivSidebarComponent,

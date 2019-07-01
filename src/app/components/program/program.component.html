@@ -37,21 +37,13 @@
                         <a *ngFor="let program of programs"
                             (click)="onClickProgram(program)"
                             class="list-group-item list-group-item-action">
-                            <div style="float:left;">
-                                <h4 class="list-group-item-heading">
-                                    {{program.programname}}
-                                </h4>
-                                <p class="list-group-item-text" style="margin-bottom:0.5rem;">
-                                    {{program.degreename}}
-                                </p>
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="list-group-item-heading">{{program.programname}}</h5>
+                                <small>{{program.credittotal}} <span translate>credits</span></small>
                             </div>
-                            <div style="float: right;text-align: right;">
-                                <p class="list-group-item-heading" style="margin-bottom:0.5rem;">
-                                    {{program.credittotal}} <span translate>credits</span>
-                                </p>
-                                <p class="list-group-item-text" style="margin-bottom:0.5rem;">
-                                    {{program.gradepointmin | number : '.2-2'}} <span translate>GPA</span>
-                                </p>
+                            <div class="d-flex w-100 justify-content-between">
+                                <div class="list-group-item-heading">{{program.degreename}}</div>
+                                <small><span translate>GPA</span> {{program.gradepointmin | number : '.2-2'}}</small>
                             </div>
                         </a>
                     </div>

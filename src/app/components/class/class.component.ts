@@ -28,6 +28,7 @@ export class ClassComponent implements OnInit, IClassComponent {
 
         private courselst: ClassService,
         private sectionlst: ClassService,
+        private allclasslst: ClassService,
     ) {
         // console.log(initsemester.defaultSemester);
         this.onLoadInitData();
@@ -47,6 +48,7 @@ export class ClassComponent implements OnInit, IClassComponent {
 
     courses: IClassCourse;
     sections: IClassSection;
+    allclass: IClassSection;
 
     ngOnInit() {
         App.initialLoadPage();
@@ -55,15 +57,22 @@ export class ClassComponent implements OnInit, IClassComponent {
     onSubmitSearch(): void {
         if (this.isemester[0] == null) { return this.alert.invalid_fill_data(); }
 
-        this.onLoadClassCourse(
+        // this.onLoadClassCourse(
+        //     {
+        //         semester: this.isemester,
+        //         searchstr: this.isearchstr,
+        //         campusid: this.icampus,
+        //         levelid: this.ilevel
+        //     });
+        // this.sections = null;
+
+        this.onLoadAllClass(
             {
                 semester: this.isemester,
                 searchstr: this.isearchstr,
                 campusid: this.icampus,
                 levelid: this.ilevel
             });
-
-        this.sections = null;
 
         this.detect.detectChanges();
     }
@@ -104,6 +113,14 @@ export class ClassComponent implements OnInit, IClassComponent {
         this.sectionlst
             .getClassSection(whclasscourse)
             .then(lstSection => { this.sections = lstSection; })
+            .catch(err => this.alert.notify(err.Message));
+    }
+
+    // all Class in Table list Component
+    private onLoadAllClass(whclass: IWhClass) {
+        this.allclasslst
+            .getAllClass(whclass)
+            .then(lstAllClass => { this.allclass = lstAllClass; })
             .catch(err => this.alert.notify(err.Message));
     }
 

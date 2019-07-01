@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h4 id="structureModal1" class="modal-title pull-left" translate>courses</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="courseinfoModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">{{coursecode}}</h5>
+                <div class="card-body">
+                    <p>{{coursename}}</p>
+                    <p>{{coursenameeng}}</p>
+                    <p>{{facultyname}}</p>
+                    <p>{{departmentname}}</p>
+                    <p>{{courseunit}}</p>
+                    <p>{{prerequisite}}</p>
+                </div>
+                <div class="card-footer">
+                    <p>{{coursedes}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="courses">
+    <!-- <div class="row" *ngIf="courses"> -->
         <!-- <div class="col-md-6">
             <div class="tile">
                 <h3 class="tile-title mb-3 line-head" translate>courses</h3>
@@ -139,5 +139,49 @@
                 </div>
             </div>
         </div> -->
+    <!-- </div> -->
+    <div class="row" *ngIf="allclass">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    ปีการศึกษา
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th translate>courses</th>
+                                    <th translate>credits</th>
+                                    <th translate>section</th>
+                                    <th style="text-align: right;" translate>totalseat</th>
+                                    <th style="text-align: right;" translate>enrollseat</th>
+                                    <th style="text-align: right;" translate>status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let class of allclass">
+                                    <td>{{class.coursecode}}</td>
+                                    <td>{{class.coursename}}</td>
+                                    <td>{{class.courseunit}}</td>
+                                    <td>{{class.section}}</td>
+                                    <td style="text-align: right;">{{class.totalseat}}</td>
+                                    <td style="text-align: right;">{{class.enrollseat}}</td>
+                                    <td *ngIf="class.classstatus=='W'"
+                                        class="badge badge-pill badge-success float-right" style="margin-top: 0.5em;">
+                                        {{class.classstatus}}
+                                    </td>
+                                    <td *ngIf="class.classstatus=='C'"
+                                        class="badge badge-pill badge-danger float-right" style="margin-top: 0.5em;">
+                                        {{class.classstatus}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>  
+        </div>
     </div>
 </app-univ-content>

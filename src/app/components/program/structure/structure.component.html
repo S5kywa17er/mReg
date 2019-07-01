@@ -47,76 +47,79 @@
 </div> -->
 
 <div class="modal-header">
-    <h4 id="structureModal1" class="modal-title pull-left">Structure</h4>
+    <h4 id="structureModal1" class="modal-title pull-left" translate>program-structure</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="structureRef.hide()">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
-    <div class="row" *ngFor="let condition of programstructures">
-        <ng-template [ngIf]="condition.conditiontype != 'C'">
-            <div class="col-sm-9">
-                <h6>{{condition.conditionid}} {{condition.description}}</h6>
+    <div class="card">
+        <div class="card-header">programname</div>
+        <div class="card-body">
+            <div *ngFor="let condition of programstructures">
+                <ng-template [ngIf]="condition.conditiontype != 'C'">
+                    <span class="card-title">{{condition.conditionid}} {{condition.description}}</span>
+                    <span class="badge badge-primary float-right pull-right">{{condition.credittotal}} <span translate>credits</span></span>
+                </ng-template>
+                <ng-template [ngIf]="condition.conditiontype == 'C'">
+                    <accordion>
+                        <accordion-group [isOpen]="isContentOpen">
+                            <button class="btn btn-link btn-block clearfix" accordion-heading>
+                                <div class="pull-left float-left">{{condition.conditionid}} {{condition.description}}</div>
+                                <span class="float-right">
+                                    <i *ngIf="isContentOpen" class="fa fa-angle-up" ></i>
+                                    <i *ngIf="!isContentOpen" class="fa fa-angle-down" ></i>
+                                </span>
+                            </button>
+                            <ul>
+                                <li class="list-unstyled" *ngFor="let course of condition.courses">
+                                    <a (click)="onClickCourse(course);">{{course.coursecode}} </a>
+                                    <span> {{course.coursename}}</span>
+                                    <span class="float-right pull-right">{{course.courseunit}}</span>
+                                </li> 
+                            </ul>
+                        </accordion-group>
+                    </accordion>
+                </ng-template>
             </div>
-            <div class="col-sm-3">
-                <h6 style="text-align: right;">{{condition.credittotal}} <span translate>credits</span></h6>
-            </div>
-        </ng-template>
-        <ng-template [ngIf]="condition.conditiontype == 'C'">
-            <div class="col-sm-12">
-                <accordion>
-                    <accordion-group heading="{{condition.conditionid}} {{condition.description}}" panelClass="customClass">
-                        <div class="row" *ngFor="let course of condition.courses">
-                            <div class="col-sm-2" style="text-align: right;">
-                                <a [routerLink]="" (click)="onClickCourse(course,templateCourse);">{{course.coursecode}}</a>
-                                <a [routerLink]="" (click)="openModal(templateCourse);">{{course.coursecode}}</a>
-                                <!-- <button type="button" class="btn btn-primary" (click)="openModal(templateCourse)">xxxx</button> -->
-                            </div> 
-                            <div class="col-sm-7">
-                                {{course.coursename}}
+        </div>
+        <!-- <div class="row" *ngFor="let condition of programstructures">
+            <ng-template [ngIf]="condition.conditiontype != 'C'">
+                <div class="col-sm-9">
+                    <h6>{{condition.conditionid}} {{condition.description}}</h6>
+                </div>
+                <div class="col-sm-3">
+                    <h6>{{condition.credittotal}} <span translate>credits</span></h6>
+                </div>
+            </ng-template>
+            <ng-template [ngIf]="condition.conditiontype == 'C'">
+                <div class="col-sm-12">
+                    <accordion>
+                        <accordion-group heading="{{condition.conditionid}} {{condition.description}}">
+                            <div class="row" *ngFor="let course of condition.courses">
+                                <div class="col-sm-2" style="text-align: right;">
+                                    <a (click)="onClickCourse(course);">{{course.coursecode}}</a>
+                                </div> 
+                                <div class="col-sm-7">
+                                    {{course.coursename}}
+                                </div>
+                                <div class="col-sm-3">
+                                    {{course.courseunit}}
+                                </div>
                             </div>
-                            <div class="col-sm-3">
-                                {{course.courseunit}}
-                            </div>
-                        </div>
-                    </accordion-group>
-                </accordion>
-            </div>
-        </ng-template>
+                        </accordion-group>
+                    </accordion>
+                </div>
+            </ng-template>
+        </div> -->
     </div>
 </div>
 <div class="modal-footer">
     <p>footer</p>
 </div>
 
-<ng-template #templateCourse>
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">{{title}}</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <p></p>
-        </div>
-    </div>
+<ng-template #courseinfo>
+    <app-course-info></app-course-info>
 </ng-template>
 
-<!-- <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1"
-     role="dialog" aria-labelledby="dialog-child-name">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h4 id="dialog-child-name" class="modal-title pull-left">course</h4>
-            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body" >
-            <p></p>
-        </div>
-        </div>
-    </div>
-</div> -->
 

@@ -16,9 +16,9 @@ export class StructureService {
             .toPromise() as Promise<IProgramStructure>;
     }
 
-    getCourseInfo(courseid: any, Token?: string) {
-        return this.http
-            .requestGet(`api/programstructure/getcourseinfo/${localStorage.getItem('lang')}/${courseid}`, Token)
-            .toPromise() as Promise<ICourseInProgram>;
-    }
+    // getCourseInfo(courseid: any, Token?: string) {
+    //     return this.http
+    //         .requestGet(`api/programstructure/getcourseinfo/${localStorage.getItem('lang')}/${courseid}`, Token)
+    //         .toPromise() as Promise<ICourseInProgram>;
+    // }
 }

@@ -28,5 +28,8 @@
     "section": "กลุ่มการเรียน",
     "program": "หลักสูตร/สาขาวิชา",
     "program-structure": "โครงสร้างหลักสูตร",
-    "credits": "หน่วยกิต"
+    "credits": "หน่วยกิต",
+    "totalseat": "จำนวนรับ",
+    "enrollseat": "ลงทะเบียน",
+    "status": "สถานะ"
 }

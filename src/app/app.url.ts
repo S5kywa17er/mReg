@@ -4,7 +4,7 @@ export const AppURL = {
     Calendar: 'calendar',
     Class: 'class',
     Program: 'program',
-    ProgramStructure: 'program-structure',
-    // AuthStudent: 'authstudent',
+    // ProgramStructure: 'program-structure',
+    AuthStudent: 'authstudent',
     // AuthStaff: 'authstaff'
 };

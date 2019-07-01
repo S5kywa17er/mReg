@@ -1,4 +1,35 @@
 /* CSS Document */
+a:not([href]) {
+  cursor: pointer;
+  color: blueviolet;
+}
+
+a:hover {
+  color: #004a43;
+  text-decoration: underline;
+}
+
+.accordion-toggle[aria-expanded="true"]:before {
+  content: "\f107";
+  font-family: "FontAwesome";
+}
+
+.accordion-toggle[aria-expanded="false"]:before {
+  content: '\f106';
+  font-family: "FontAwesome";
+}
+
+.collapse {
+  transition: all 0.3s ease-out;
+  display: block !important;
+  overflow: hidden !important;
+  max-height: 0;
+}
+
+.collapse.in {
+  transition: all 0.5s ease-in;
+  max-height: 9px;
+}
 
 /* .accordion .card-header:after {
   font-family: "FontAwesome";
@@ -21,7 +52,7 @@
 /* ::ng-deep .modal-content{
   width: 800px;
 } */
-.accordion.animate .panel-collapse {
+/* .accordion.animate .panel-collapse {
 	max-height: 0px;
 	transition: max-height 0.5s;
 	display: block !important;
@@ -41,4 +72,4 @@
 }
 .panel.customClass .panel-body {
   background-color: #337aa7;
-}
+} */

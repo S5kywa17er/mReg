@@ -26,8 +26,11 @@ export interface IClassCourse {
 
 export interface IClassSection {
     classid: any;
+    semester: string;
     courseid: any;
     coursecode: string;
+    coursename: string;
+    courseunit: string;
     section: string;
     sectioncode: string;
     totalseat: string;

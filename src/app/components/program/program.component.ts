@@ -11,6 +11,8 @@ import { AppURL } from 'src/app/app.url';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { ProgramStructureComponent } from '../program-structure/program-structure.component';
 import { StructureComponent } from './structure/structure.component';
+import { ICourseInfo } from './course-info/course-info.interface';
+import { CourseInfoComponent } from './course-info/course-info.component';
 
 declare const App: any;
 
@@ -44,7 +46,6 @@ export class ProgramComponent implements OnInit, IProgramComponent {
     programs: IProgramInfo;
 
     structureRef: BsModalRef;
-    structureRef2: BsModalRef;
 
     AppURL = AppURL;
 

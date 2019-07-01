@@ -8,7 +8,7 @@ export class AlertService {
     notify(message: string, type: string = 'warning') {
         $.notify({
             // options
-            title: 'แจ้งเตือน : ',
+            title: '<strong>Warning : </strong>',
             message: message,
         }, {
                 // settings
@@ -51,15 +51,15 @@ export class AlertService {
             });
     }
 
-    invalid_data(message: string = 'ข้อมูลไม่ถูกต้องหรือไม่เป็นไปตามเงื่อนไข กรุณาลองอีกครั้ง') {
+    invalid_data(message: string = '<br>ข้อมูลไม่ถูกต้อง หรือ<br>ไม่เป็นไปตามเงื่อนไข<br>กรุณาลองอีกครั้ง') {
         this.notify(message);
     }
 
-    invalid_fill_data(message: string = 'ระบุข้อมูลไม่ครบถ้วนหรือไม่เป็นไปตามเงื่อนไข กรุณาลองอีกครั้ง') {
+    invalid_fill_data(message: string = '<br>ระบุข้อมูลไม่ครบ หรือ<br>ไม่เป็นไปตามเงื่อนไข<br>กรุณาระบุอีกครั้ง') {
         this.notify(message);
     }
 
-    data_not_found(message: string = 'ไม่พบข้อมูลตามเงื่อนไขที่ระบุ') {
+    data_not_found(message: string = '<br>ไม่พบข้อมูลตามเงื่อนไขที่ระบุ') {
         this.notify(message);
     }
 
