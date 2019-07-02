@@ -16,7 +16,7 @@ import { ProgramComponent } from './components/program/program.component';
 import { WebmsgComponent } from './components/univ/webmsg/webmsg.component';
 import { ProgramStructureComponent } from './components/program-structure/program-structure.component';
 import { StructureComponent } from './components/program/structure/structure.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap';
 import { CourseInfoComponent } from './components/program/course-info/course-info.component';
 

@@ -1,3 +1,5 @@
 export const AuthStudentURL = {
-    Student: 'student'
+    Student: 'student',
+    Biblio: 'biblio',
+    ChangePassword: 'change-password'
 };

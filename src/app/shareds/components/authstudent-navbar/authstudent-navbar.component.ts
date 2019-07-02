@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from 'src/app/services/language.service';
 import { AuthStudentURL } from 'src/app/authstudent/authstudent.url';
+import { AppURL } from 'src/app/app.url';
 
 @Component({
     selector: 'app-authstudent-navbar',
@@ -15,6 +16,7 @@ export class AuthstudentNavbarComponent implements OnInit {
         private router: Router,
     ) { }
 
+    AppURL = AppURL;
     AuthStudentURL = AuthStudentURL;
 
     ngOnInit() {
